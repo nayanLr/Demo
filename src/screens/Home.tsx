@@ -92,8 +92,9 @@ const Home = () => {
   };
 
   const renderAgent = ({ item }: { item: Agent }) => {
+    console.log("item- --", item);
     return (
-      <View style={styles.cardContainer}>
+      <View style={styles.cardContainer} key={item?.mobileNo}>
         {/* User Card Content */}
         <View style={styles.innerTopContainer}>
           <View style={styles.iconContainer}>
@@ -176,7 +177,7 @@ const Home = () => {
               <>
                 <FlatList
                   data={agentList}
-                  keyExtractor={(item: any) => item?.id}
+                  keyExtractor={(item: any) => item?.mobileNo}
                   renderItem={renderAgent}
                 />
                 <SubmitButton
